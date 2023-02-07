@@ -29,7 +29,7 @@ public class ClienteService implements IClienteService{
 	}
 
 	@Override
-	public String save(Cliente cliente) {
+	public String save(Cliente cliente)throws Exception {
 		String strMensaje = "";
 		try {
 			data.save(cliente);
@@ -37,6 +37,7 @@ public class ClienteService implements IClienteService{
 		}catch (Exception e) {
 			e.printStackTrace();
 			strMensaje = "Excepción del aplicativo , Mensaje Sistemas: "+e.getLocalizedMessage();
+			throw new Exception(strMensaje);
 		}
 		
 		return strMensaje;
@@ -44,7 +45,7 @@ public class ClienteService implements IClienteService{
 	
 	
 	@Override
-	public String actualiza(Cliente cliente) {
+	public String actualiza(Cliente cliente)throws Exception {
 		
 		Cliente cl = data.findById(cliente.getId()).get();
 		
@@ -66,6 +67,7 @@ public class ClienteService implements IClienteService{
 		}catch (Exception e) {
 			e.printStackTrace();
 			strMensaje = "Excepción del aplicativo , Mensaje Sistemas: "+e.getLocalizedMessage();
+			throw new Exception(strMensaje);
 		}
 		
 		return strMensaje;
@@ -74,20 +76,21 @@ public class ClienteService implements IClienteService{
 	
 
 	@Override
-	public String delete(int id) {
+	public String delete(int id) throws Exception {
 		String strMensaje = "";
 		try {
 			data.deleteById(id);
-			strMensaje = "Transacción Exitosa";
+			strMensaje = "OK";
 		}catch (Exception e) {
 			e.printStackTrace();
 			strMensaje = "Excepción del aplicativo , Mensaje Sistemas: "+e.getLocalizedMessage();
+			throw new Exception(strMensaje);
 		}
 		return strMensaje;
 	}
 
 	@Override
-	public String deleteAll() {
+	public String deleteAll()throws Exception {
 		String strMensaje = "";
 		try {
 			data.deleteAll();
@@ -95,6 +98,7 @@ public class ClienteService implements IClienteService{
 		}catch (Exception e) {
 			e.printStackTrace();
 			strMensaje = "Excepción del aplicativo , Mensaje Sistemas: "+e.getLocalizedMessage();
+			throw new Exception(strMensaje);
 		}
 		return strMensaje;
 	}

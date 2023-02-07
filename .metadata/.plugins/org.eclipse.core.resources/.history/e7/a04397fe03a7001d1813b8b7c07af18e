@@ -1,0 +1,15 @@
+package com.example.demo.response;
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({ "code", "status", "data", "message" })
+public class SuccessResponseDTO<T> extends BaseResponseDTO {
+	
+	private T data;
+
+	public SuccessResponseDTO() {
+		
+	}
+
+	
+}

@@ -10,12 +10,12 @@ public interface IClienteService {
 	//ESTA CLASE ES UNA INTERFAZ DE LOS METODOS QUE VAMOS A IMPLEMENTAR
 	
 
-	public List<Cliente> listar();
-	public Optional<Cliente>listarId(int id);
-	public String save(Cliente cliente);
-	public String actualiza(Cliente cliente);
-	public String delete(int id);
-	public String deleteAll();
+	public List<Cliente> listar()throws Exception;
+	public Optional<Cliente>listarId(int id)throws Exception;
+	public String save(Cliente cliente) throws Exception;
+	public String actualiza(Cliente cliente)throws Exception;
+	public String delete(int id) throws Exception;
+	public String deleteAll()throws Exception;
 	
 	
 }

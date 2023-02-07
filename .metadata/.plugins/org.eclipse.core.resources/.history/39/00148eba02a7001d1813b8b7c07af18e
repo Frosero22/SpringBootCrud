@@ -1,0 +1,17 @@
+package com.example.demo.models;
+
+@Provider
+public class ServiceExceptionMapper implements ExceptionMapper&lt;ServiceException&gt; {
+ 
+    @Override
+    public Response toResponse(ServiceException ex) {
+        ErrorMessage errorMessage = new ErrorMessage();
+        errorMessage.setCode(ex.getCode());
+        errorMessage.setMessage(ex.getMessage());
+        StringWriter errorStackTrace = new StringWriter();
+        ex.printStackTrace(new PrintWriter(errorStackTrace));
+        errorMessage.setDeveloperMessage(ex.toString());
+        return Response.status(ex.getHttpStatus()).entity(errorMessage).type(MediaType.APPLICATION_JSON).build();
+    }
+ 
+}
