@@ -1,7 +1,0 @@
-package service;
-
-import interfaceService.IClienteService;
-
-public class ClienteService implements IClienteService{
-
-}

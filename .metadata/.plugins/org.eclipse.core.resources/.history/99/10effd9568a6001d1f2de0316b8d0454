@@ -1,5 +1,0 @@
-package interfaceService;
-
-public interface IClienteService {
-
-}
