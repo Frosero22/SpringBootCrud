@@ -1,0 +1,119 @@
+package com.example.demo.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "cliente")
+public class Cliente {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String firstName;
+	private String lastName;
+	private String birthay;
+	private String gender;
+	private String cellPhone;
+	private String homePhone;
+	private String addressHome;
+	private String profession;
+	private String incomes;
+	
+	public Cliente() {
+		super();
+	}
+
+	public Cliente(String firstName, String lastName, String birthay, String gender, String cellPhone, String homePhone,
+			String addressHome, String profession, String incomes) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthay = birthay;
+		this.gender = gender;
+		this.cellPhone = cellPhone;
+		this.homePhone = homePhone;
+		this.addressHome = addressHome;
+		this.profession = profession;
+		this.incomes = incomes;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getBirthay() {
+		return birthay;
+	}
+
+	public void setBirthay(String birthay) {
+		this.birthay = birthay;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getCellPhone() {
+		return cellPhone;
+	}
+
+	public void setCellPhone(String cellPhone) {
+		this.cellPhone = cellPhone;
+	}
+
+	public String getHomePhone() {
+		return homePhone;
+	}
+
+	public void setHomePhone(String homePhone) {
+		this.homePhone = homePhone;
+	}
+
+	public String getAddressHome() {
+		return addressHome;
+	}
+
+	public void setAddressHome(String addressHome) {
+		this.addressHome = addressHome;
+	}
+
+	public String getProfession() {
+		return profession;
+	}
+
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
+
+	public String getIncomes() {
+		return incomes;
+	}
+
+	public void setIncomes(String incomes) {
+		this.incomes = incomes;
+	}
+	
+	
+	
+	
+}
