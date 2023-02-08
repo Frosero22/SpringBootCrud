@@ -25,8 +25,8 @@ public class SwaggerConfig {
 	@Bean
     public ApiInfo apiInfo() {
         final ApiInfoBuilder builder = new ApiInfoBuilder();
-        builder.title("My Application API through Swagger UI").version("1.0").license("(C) Copyright Test")
-        .description("List of all the APIs of My Application App through Swagger UI");
+        builder.title("PRUEBA TECNICA UNICOMER").version("1.0").license("(C) Copyright Test")
+        .description("LISTA DE TODAS LAS APIS DE LA PRUEBA TECNICA UNICOMER");
         return builder.build();
         }
 
