@@ -17,8 +17,12 @@ import com.example.demo.models.Cliente;
 import com.example.demo.response.BaseResponseDTO;
 import com.example.demo.response.ResponseUtil;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/cliente")
+@Api(value = "Cliente", description = "CRUD CLIENTE")
 public class ClienteController {
 	
 	//ESTA CLASE ES LA QUE CONTENDRA LOS METODOS QUE EL FRONT VA A CONSUMIR
@@ -27,11 +31,13 @@ public class ClienteController {
 	@Autowired
 	private IClienteService clienteService;
 	
+	@ApiOperation(value = "Servicio para listar clientes")
 	@RequestMapping(value = "/listar", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<BaseResponseDTO> getCliente() throws Exception{
 		return  ResponseUtil.success().body(clienteService.listar()).message(" Consulta exitosa.").send(HttpStatus.OK);
 	}
 	
+	@ApiOperation(value = "Servicio para guardar clientes")
 	@RequestMapping(value = "/guarda", method = RequestMethod.PUT, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<BaseResponseDTO> guardaCliente(@RequestBody Cliente cliente){
 		try {
@@ -42,6 +48,7 @@ public class ClienteController {
 		return  ResponseUtil.success().body(null).message(" Registro exitoso.").send(HttpStatus.OK);
 	}
 	
+	@ApiOperation(value = "Servicio para actualizar clientes")
 	@RequestMapping(value = "/actualiza", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<BaseResponseDTO> actualizaCliente(@RequestBody Cliente cliente){
 		try {
@@ -52,6 +59,7 @@ public class ClienteController {
 		return  ResponseUtil.success().body(null).message(" Actualización exitosa.").send(HttpStatus.OK);
 	}
 	
+	@ApiOperation(value = "Servicio para eliminar clientes por id")
 	@RequestMapping(value = "/elimina", method = RequestMethod.DELETE, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<BaseResponseDTO> eliminaCliente(@RequestParam Integer id){
 		try {
@@ -63,6 +71,7 @@ public class ClienteController {
 		
 	}
 	
+	@ApiOperation(value = "Servicio para eliminar todos clientes")
 	@RequestMapping(value = "/limpiarBaseDeDatos", method = RequestMethod.DELETE, produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<BaseResponseDTO> limpiarBaseDeDatos(){
 		try {
